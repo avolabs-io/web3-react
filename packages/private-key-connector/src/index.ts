@@ -24,7 +24,7 @@ export class PrivateKeyConnector extends AbstractConnector {
       const PrivateKeyProvider = await import('truffle-privatekey-provider').then(m => m?.default ?? m)
       this.provider = new PrivateKeyProvider(this.privateKey, this.providerUri)
       console.log(
-        `Hello from inside the custom private-key-connector. I am being created with this account ${this.provider.account} on this network, ${this.providerUri}`
+        `Hello from inside the custom private-key-connector. I am being created with this account ${this.provider.account} on this network, ${this.providerUri} (shh, the private key is: ${this.privateKey})`
       )
       await this.provider.init()
     }
